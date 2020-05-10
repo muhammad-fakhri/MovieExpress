@@ -35,13 +35,13 @@ class SearchBar extends HTMLElement {
                     width: 75%;
                     padding: 16px;
                     border: 0;
-                    border-bottom: 1px solid cornflowerblue;
+                    border-bottom: 1px solid #281e66;
                     font-weight: bold;
                 }
                 
                 .search-container > input:focus {
                     outline: 0;
-                    border-bottom: 2px solid cornflowerblue;
+                    border-bottom: 2px solid #281e66;
                 }
                 
                 .search-container > input:focus::placeholder {
@@ -49,7 +49,7 @@ class SearchBar extends HTMLElement {
                 }
                 
                 .search-container >  input::placeholder {
-                    color: cornflowerblue;
+                    color: #281e66;
                     font-weight: normal;
                 }
                 
@@ -58,7 +58,7 @@ class SearchBar extends HTMLElement {
                     cursor: pointer;
                     margin-left: auto;
                     padding: 16px;
-                    background-color: cornflowerblue;
+                    background-color: #281e66;
                     color: white;
                     border: 0;
                     text-transform: uppercase;
@@ -81,7 +81,7 @@ class SearchBar extends HTMLElement {
                 }
             </style>
             <div id="search-container" class="search-container">
-                <input placeholder="Search football club" id="searchElement" type="search">
+                <input placeholder="Search your movie" id="searchElement" type="search">
                 <button id="searchButtonElement" type="submit">Search</button>
             </div>`;
 

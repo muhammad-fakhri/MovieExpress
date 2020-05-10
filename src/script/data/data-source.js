@@ -1,13 +1,11 @@
-import clubs from "./clubs.js";
-
 class DataSource {
-    static async searchClub(keyword) {
+    static async searchMovie(keyword) {
         try {
-            const baseUrl = "https://www.thesportsdb.com/api/v1/json/1/searchteams.php?t=";
-            const response = await fetch(`${baseUrl}${keyword}`);
+            const baseUrl = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.API_KEY}&language=en-US&query=${keyword}&page=1&include_adult=false`;
+            const response = await fetch(baseUrl);
             const responseJson = await response.json();
-            if (responseJson.teams) {
-                return Promise.resolve(responseJson.teams);
+            if (responseJson.results) {
+                return Promise.resolve(responseJson.results);
             } else {
                 return Promise.reject(`${keyword} is not found`);
             }

@@ -19,15 +19,29 @@ class AppBar extends HTMLElement {
         :host {
             display: block;
             width: 100%;
-            background-color: cornflowerblue;
+            background-color: #281e66;
             color: white;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
         }
+        h2,h3{
+            color: #ebebeb;
+            text-align:center;
+        }
         h2{
-            padding: 16px;
+            margin-bottom:10px;
+        }
+        h3{
+            font-size:14px;
+        }
+        div {
+            padding:10px;
         }
         </style>
-        <h2>Club Finder</h2>`;
+        <div>
+            <h2>Movie Express</h2>
+            <h3>Your fast movie catalog</h3>
+        </div>
+        `;
     }
 }
 
