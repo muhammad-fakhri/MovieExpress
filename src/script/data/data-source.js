@@ -13,6 +13,21 @@ class DataSource {
             console.log(error);
         }
     }
+
+    static async getPopular() {
+        try {
+            const url = `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}&language=en-US&page=1`;
+            const response = await fetch(url);
+            const responseJson = await response.json();
+            if (responseJson.results) {
+                return Promise.resolve(responseJson.results);
+            } else {
+                return Promise.reject(`${keyword} is not found`);
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
 }
 
 export default DataSource;

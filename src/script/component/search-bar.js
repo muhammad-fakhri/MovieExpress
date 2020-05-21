@@ -9,7 +9,7 @@ class SearchBar extends HTMLElement {
     }
 
     set clickEvent(event) {
-    this._clickEvent = event;
+        this._clickEvent = event;
         this.render();
     }
 
@@ -20,6 +20,10 @@ class SearchBar extends HTMLElement {
     render() {
         this.shadowDOM.innerHTML = `
             <style>
+                #search-container {
+                    z-index: 1;
+                }    
+            
                 .search-container {
                     max-width: 800px;
                     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);

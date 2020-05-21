@@ -20,6 +20,7 @@ class MovieList extends HTMLElement {
             padding: 16px;
         }
         </style>
+        <h2>Search Result</h2>
         `;
         this._movies.forEach(movie => {
             const movieItemElement = document.createElement("movie-item");
@@ -40,6 +41,7 @@ class MovieList extends HTMLElement {
             user-select: none;
         }
         </style>
+        <h2>Search Result</h2>
         `;
         this.shadowDOM.innerHTML += `<h2 class="placeholder">${message}</h2>`;
     }
