@@ -39,7 +39,6 @@ class AppBar extends HTMLElement {
         </style>
         <div>
             <h2>Movie Express</h2>
-            <h3>Search your best movie here</h3>
         </div>
         `;
     }

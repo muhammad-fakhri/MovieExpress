@@ -26,3 +26,9 @@ popular-list {
     width: 100%;
     height: auto;
 }
+
+#go-up-btn{
+    z-index: 99;
+    right: 100px;
+    bottom: 50px;
+}

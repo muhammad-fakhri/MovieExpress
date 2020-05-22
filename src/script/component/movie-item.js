@@ -10,6 +10,14 @@ class MovieItem extends HTMLElement {
     }
 
     render() {
+        // set poster URL
+        let url;
+        if (this._movie.poster_path) {
+            url = `https://image.tmdb.org/t/p/original/${this._movie.poster_path}`;
+        } else {
+            url = 'https://via.placeholder.com/500x300?text=Poster+Not+Available';
+        }
+
         this.shadowDOM.innerHTML = `
         <style>
             * {
@@ -49,12 +57,19 @@ class MovieItem extends HTMLElement {
                 -webkit-box-orient: vertical;
                 -webkit-line-clamp: 10; /* number of lines to show */
             }
+            
+            .movie-info > a {
+                margin-top: 20px;
+            }
         </style>
 
-        <img class="movie-poster" src="https://image.tmdb.org/t/p/original/${this._movie.poster_path}" alt="Movie Poster">
+        <img class="movie-poster" src="${url}" alt="Movie Poster">
         <div class="movie-info">
             <h2>${this._movie.title}</h2>
             <p>${this._movie.overview}</p>
+            <p>
+                <a href="https://www.themoviedb.org/movie/${this._movie.id}" target="_blank">Click here for more detail...</a>
+            </p>
         </div>
         `;
     }

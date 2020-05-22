@@ -25,6 +25,7 @@ const main = () => {
         try {
             const result = await DataSource.searchMovie(searchElement.value);
             renderResult(result, searchElement.value);
+            movieListElement.scrollIntoView();
         } catch (error) {
             fallbackResult(error);
         }

@@ -1,32 +1,34 @@
+const axios = require('axios');
+
 class DataSource {
-    static async searchMovie(keyword) {
-        try {
-            const baseUrl = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.API_KEY}&language=en-US&query=${keyword}&page=1&include_adult=false`;
-            const response = await fetch(baseUrl);
-            const responseJson = await response.json();
-            if (responseJson.results) {
-                return Promise.resolve(responseJson.results);
-            } else {
-                return Promise.reject(`${keyword} is not found`);
+    static searchMovie(keyword) {
+        return axios.get('https://api.themoviedb.org/3/search/movie', {
+            params: {
+                api_key: process.env.API_KEY,
+                language: 'en-US',
+                query: keyword,
+                page: 1,
+                include_adult: 'false'
             }
-        } catch (error) {
-            console.log(error);
-        }
+        }).then(response => {
+            return Promise.resolve(response.data.results);
+        }).catch(error => {
+            return Promise.reject(`${keyword} is not found`);
+        });
     }
 
-    static async getPopular() {
-        try {
-            const url = `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}&language=en-US&page=1`;
-            const response = await fetch(url);
-            const responseJson = await response.json();
-            if (responseJson.results) {
-                return Promise.resolve(responseJson.results);
-            } else {
-                return Promise.reject(`${keyword} is not found`);
+    static getPopular() {
+        return axios.get('https://api.themoviedb.org/3/movie/popular', {
+            params: {
+                api_key: process.env.API_KEY,
+                language: 'en-US',
+                page: 1
             }
-        } catch (error) {
-            console.log(error);
-        }
+        }).then(response => {
+            return Promise.resolve(response.data.results);
+        }).catch(error => {
+            return Promise.reject(`${keyword} is not found`);
+        });
     }
 }
 
